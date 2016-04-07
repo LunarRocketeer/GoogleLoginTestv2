@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_id": "coherent-ascent-127415",
+    "project_number": "652075516457",
+    "name": "GoogleLoginTestv2"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:652075516457:android:e9a6ea10238f6f94",
+        "client_id": "android:com.example.bal_csmiller.googlelogintestv2",
+        "client_type": 1,
+        "android_client_info": {
+          "package_name": "com.example.bal_csmiller.googlelogintestv2",
+          "certificate_hash": []
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "652075516457-07h65fbnj4cmshiru5hoeo3pilrjsh8s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bal_csmiller.googlelogintestv2",
+            "certificate_hash": "51CEAF8872F0286754328B7047F6C4DCD46FC19E"
+          }
+        },
+        {
+          "client_id": "652075516457-s850n8uoql5ir6c8ajhqurgsadg98cp5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "cloud_messaging_service": {
+          "status": 1,
+          "apns_config": []
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "google_signin_service": {
+          "status": 2
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "client_info": [],
+  "ARTIFACT_VERSION": "1"
+}
