@@ -39,6 +39,11 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     private static final String TAG = "SignInActivity";
     private static final int RC_SIGN_IN = 9001;
 
+    private String userName;
+    private String userEmail;
+    private String userId;
+    private Uri userPhoto;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +64,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         });
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         mGoogleApiClient = new GoogleApiClient.Builder(this).enableAutoManage(this, this).addApi(Auth.GOOGLE_SIGN_IN_API, gso).build();
+
+        mStatusTextView = (TextView) findViewById(R.id.status_text_view);
 
         /*
         https://developers.google.com/identity/sign-in/android/sign-in#configure_google_sign-in_and_the_googleapiclient_object
@@ -120,10 +127,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         }
     }
 
-    private String userName;
-    private String userEmail;
-    private String userId;
-    Uri userPhoto;
+
 
     private void handleSignInResult(GoogleSignInResult result) {
         Log.d(TAG, "handleSignInResult:" + result.isSuccess());
@@ -131,11 +135,11 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
             GoogleSignInAccount account = result.getSignInAccount();
             //TODO: Replace with getString(R.string.signed_in_fmt, account.getDisplayName())
             mStatusTextView.setText(account.getDisplayName());
-            updateUI(true);
             userName = account.getDisplayName();
             userEmail = account.getEmail();
             userId = account.getId();
             userPhoto = account.getPhotoUrl();
+            updateUI(true);
         } else {
             updateUI(false);
         }
@@ -146,6 +150,9 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         if (signedIn){
             findViewById(R.id.sign_in_button).setVisibility(View.GONE);
             findViewById(R.id.sign_out_button).setVisibility(View.VISIBLE);
+            mStatusTextView.setText("Welcome, " + userName);
+            TextView emailView = (TextView) findViewById(R.id.status_email);
+            emailView.setText("Email: " + userEmail);
         }
         else{
             //TODO: Replace with R.string.signed_out

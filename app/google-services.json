@@ -17,7 +17,7 @@
       },
       "oauth_client": [
         {
-          "client_id": "652075516457-07h65fbnj4cmshiru5hoeo3pilrjsh8s.apps.googleusercontent.com",
+          "client_id": "652075516457-31jktpnu90j2id5nplf9t7mnnv8cekds.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.bal_csmiller.googlelogintestv2",
@@ -25,7 +25,7 @@
           }
         },
         {
-          "client_id": "652075516457-s850n8uoql5ir6c8ajhqurgsadg98cp5.apps.googleusercontent.com",
+          "client_id": "652075516457-31jktpnu90j2id5nplf9t7mnnv8cekds.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
