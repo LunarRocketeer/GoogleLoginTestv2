@@ -62,6 +62,18 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                 }
             }
         });
+
+        View signOutButton = findViewById(R.id.sign_out_button);
+        signOutButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                switch (view.getId()){
+                    case R.id.sign_out_button:
+                        signOut();
+                        break;
+                }
+            }
+        });
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         mGoogleApiClient = new GoogleApiClient.Builder(this).enableAutoManage(this, this).addApi(Auth.GOOGLE_SIGN_IN_API, gso).build();
 
@@ -147,16 +159,19 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
     //Changes visibility of sign in and out buttons.
     private void updateUI(boolean signedIn){
+        //TODO: Remove this after done with testing
+        TextView emailView = (TextView) findViewById(R.id.status_email);
+        emailView.setText("Email: " + userEmail);
         if (signedIn){
             findViewById(R.id.sign_in_button).setVisibility(View.GONE);
             findViewById(R.id.sign_out_button).setVisibility(View.VISIBLE);
             mStatusTextView.setText("Welcome, " + userName);
-            TextView emailView = (TextView) findViewById(R.id.status_email);
-            emailView.setText("Email: " + userEmail);
+
         }
         else{
             //TODO: Replace with R.string.signed_out
             mStatusTextView.setText("Signed out");
+            emailView.setText("Email:");
 
             findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);
             findViewById(R.id.sign_out_button).setVisibility(View.GONE);
@@ -169,6 +184,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     }
 
     private void signOut() {
+        Log.i("SignInActivity","Signing out");
         Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
                 new ResultCallback<Status>() {
                     @Override
