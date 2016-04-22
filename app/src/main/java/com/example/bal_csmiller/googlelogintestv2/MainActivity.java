@@ -79,9 +79,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
         mStatusTextView = (TextView) findViewById(R.id.status_text_view);
 
-        /*
-        https://developers.google.com/identity/sign-in/android/sign-in#configure_google_sign-in_and_the_googleapiclient_object
-         */
     }
 
     @Override
